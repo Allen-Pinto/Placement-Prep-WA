@@ -8,7 +8,7 @@ import rateLimit from 'express-rate-limit';
 import hpp from 'hpp';
 import compression from 'compression';
 import passport from './src/config/passport.js';
-import { errorHandler } from '../src/Middleware/errorHandler.js';
+import { errorHandler } from './src/Middleware/errorHandler.js';
 
 // Routes
 import authRoutes from './src/routes/authRoutes.js';
