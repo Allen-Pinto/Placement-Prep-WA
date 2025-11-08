@@ -1,8 +1,8 @@
 import Quiz from '../models/Quiz.js';
 import Attempt from '../models/Attempt.js';
 import Question from '../models/Question.js';
-import { asyncHandler } from '../middleware/errorHandler.js';
-import { ErrorResponse } from '../middleware/errorHandler.js';
+import { asyncHandler } from '../Middleware/errorHandler.js';
+import { ErrorResponse } from '../Middleware/errorHandler.js';
 
 /**
  * @desc    Get all quizzes with filters

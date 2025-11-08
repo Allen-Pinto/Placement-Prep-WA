@@ -1,7 +1,7 @@
 import express from 'express';
-import { protect } from '../middleware/authMiddleware.js';
+import { protect } from '../Middleware/authMiddleware.js';
 import Resume from '../models/Resume.js';
-import { asyncHandler } from '../middleware/errorHandler.js';
+import { asyncHandler } from '../Middleware/errorHandler.js';
 import multer from 'multer';
 
 const router = express.Router();

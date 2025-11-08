@@ -1,7 +1,7 @@
 import express from 'express';
-import { protect } from '../middleware/authMiddleware.js';
+import { protect } from '../Middleware/authMiddleware.js';
 import Question from '../models/Question.js';
-import { asyncHandler } from '../middleware/errorHandler.js';
+import { asyncHandler } from '../Middleware/errorHandler.js';
 
 const router = express.Router();
 

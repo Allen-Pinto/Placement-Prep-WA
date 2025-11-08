@@ -12,7 +12,7 @@ import {
   deleteAccount,
 } from '../controllers/authController.js';
 import { oauthSuccess, oauthFailure } from '../controllers/oauthController.js';
-import { protect } from '../middleware/authMiddleware.js';
+import { protect } from '../Middleware/authMiddleware.js';
 import { authValidation, validate } from '../Middleware/validator.js';
 
 const router = express.Router();

@@ -1,7 +1,7 @@
 import express from 'express';
-import { protect } from '../middleware/authMiddleware.js';
+import { protect } from '../Middleware/authMiddleware.js';
 import Interview from '../models/Interview.js'; // Changed from { Interview }
-import { asyncHandler } from '../middleware/errorHandler.js';
+import { asyncHandler } from '../Middleware/errorHandler.js';
 import { interviewValidation, validate } from '../Middleware/validator.js';
 
 const router = express.Router();

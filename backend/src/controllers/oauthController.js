@@ -1,4 +1,4 @@
-import { asyncHandler } from '../middleware/errorHandler.js';
+import { asyncHandler } from '../Middleware/errorHandler.js';
 import { CLIENT_URL } from '../config/env.js';
 
 export const oauthSuccess = asyncHandler(async (req, res) => {

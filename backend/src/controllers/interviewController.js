@@ -1,5 +1,5 @@
 import Interview from '../models/Interview.js';
-import { asyncHandler } from '../middleware/errorHandler.js';
+import { asyncHandler } from '../Middleware/errorHandler.js';
 
 /**
  * @desc    Get all interviews for authenticated user
