@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #f83f87 0%, #3b82f6 100%);
+  --gradient-success: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+  --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===========================
+   BASE STYLES
+   =========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-dark-bg text-dark-text font-sans;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark-card;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-dark-border rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-600;
+}
+
+/* ===========================
+   UTILITY CLASSES
+   =========================== */
+@layer components {
+  /* Gradient Text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Gradient Background */
+  .gradient-bg {
+    background: var(--gradient-primary);
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+  }
+
+  /* Glass Effect */
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+
+  /* Card Styles */
+  .card {
+    @apply bg-dark-card rounded-2xl p-6 border border-dark-border transition-all duration-200;
+  }
+
+  .card-hover {
+    @apply card hover:bg-dark-card-hover hover:border-primary-500/30 cursor-pointer;
+  }
+
+  /* Button Base */
+  .btn {
+    @apply px-6 py-3 rounded-xl font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2;
+  }
+
+  .btn-primary {
+    @apply btn gradient-bg text-white hover:shadow-glow-primary;
+  }
+
+  .btn-secondary {
+    @apply btn bg-dark-card-hover text-white hover:bg-dark-border;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-dark-text hover:bg-dark-card;
+  }
+
+  /* Input Styles */
+  .input {
+    @apply w-full px-4 py-3 bg-dark-card border border-dark-border rounded-xl text-white placeholder:text-dark-text-muted focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all;
+  }
+
+  /* Badge Styles */
+  .badge {
+    @apply px-3 py-1 rounded-full text-sm font-medium inline-flex items-center gap-1;
+  }
+
+  .badge-success {
+    @apply badge bg-success/20 text-success;
+  }
+
+  .badge-error {
+    @apply badge bg-error/20 text-error;
+  }
+
+  .badge-warning {
+    @apply badge bg-warning/20 text-warning;
+  }
+
+  .badge-info {
+    @apply badge bg-info/20 text-info;
+  }
+
+  /* Progress Bar */
+  .progress-bar {
+    @apply w-full h-2 bg-dark-card rounded-full overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full gradient-bg transition-all duration-500;
+  }
+}
+
+/* ===========================
+   ANIMATIONS
+   =========================== */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton {
+  @apply bg-gradient-to-r from-dark-card via-dark-card-hover to-dark-card bg-[length:1000px_100%];
+  animation: shimmer 2s infinite;
+}
+
+/* ===========================
+   RESPONSIVE TYPOGRAPHY
+   =========================== */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 18px;
+  }
+}
