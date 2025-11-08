@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 import { asyncHandler } from '../Middleware/errorHandler.js';
-import { ErrorResponse } from './Middleware/errorHandler.js';
+import { ErrorResponse } from '../Middleware/errorHandler.js';
 import { JWT_SECRET, JWT_EXPIRE, JWT_COOKIE_EXPIRE, CLIENT_URL } from '../config/env.js';
 
 const sendTokenResponse = (user, statusCode, res) => {
