@@ -16,7 +16,7 @@ export const {
   GITHUB_CLIENT_ID,
   GITHUB_CLIENT_SECRET,
   GITHUB_CALLBACK_URL,
-  FRONTEND_URL = 'http://localhost:3000',
+  FRONTEND_URL = 'https://placement-prep-wa.vercel.app',
   CLIENT_URL = FRONTEND_URL, 
   EMAIL_SERVICE,
   EMAIL_FROM,

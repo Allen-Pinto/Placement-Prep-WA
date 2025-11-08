@@ -58,11 +58,11 @@ const Login = () => {
 
   // OAuth handlers
   const handleGoogleLogin = () => {
-    window.location.href = 'http://localhost:5001/api/auth/google';
+    window.location.href = 'https://placement-prep-wa.onrender.com/api/auth/google';
   };
 
   const handleGitHubLogin = () => {
-    window.location.href = 'http://localhost:5001/api/auth/github';
+    window.location.href = 'https://placement-prep-wa.onrender.com/api/auth/github';
   };
 
   return (

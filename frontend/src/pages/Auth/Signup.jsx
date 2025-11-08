@@ -88,11 +88,11 @@ const Signup = () => {
 
   // OAuth handlers
   const handleGoogleSignup = () => {
-    window.location.href = 'http://localhost:5001/api/auth/google';
+    window.location.href = 'https://placement-prep-wa.onrender.com/api/auth/google';
   };
 
   const handleGitHubSignup = () => {
-    window.location.href = 'http://localhost:5001/api/auth/github';
+    window.location.href = 'https://placement-prep-wa.onrender.com/api/auth/github';
   };
 
   return (

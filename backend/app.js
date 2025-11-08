@@ -25,7 +25,7 @@ app.use(helmet());
 
 app.use(
   cors({
-    origin: CLIENT_URL || 'http://localhost:3000',
+    origin: CLIENT_URL || 'https://placement-prep-wa.vercel.app',
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
