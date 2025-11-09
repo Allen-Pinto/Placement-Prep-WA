@@ -2,6 +2,14 @@ import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import { Strategy as GitHubStrategy } from 'passport-github2';
 import User from '../models/User.js';
+import { 
+  GOOGLE_CLIENT_ID, 
+  GOOGLE_CLIENT_SECRET, 
+  GOOGLE_CALLBACK_URL,
+  GITHUB_CLIENT_ID,
+  GITHUB_CLIENT_SECRET,
+  GITHUB_CALLBACK_URL 
+} from '../config/env.js';
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -16,18 +24,19 @@ passport.deserializeUser(async (id, done) => {
   }
 });
 
-// Google OAuth 
+// Google OAuth - FIXED: Use imported callback URL
 passport.use(
   new GoogleStrategy(
     {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: `${process.env.API_URL || 'http://localhost:5001'}/api/auth/google/callback`,
+      clientID: GOOGLE_CLIENT_ID,
+      clientSecret: GOOGLE_CLIENT_SECRET,
+      callbackURL: GOOGLE_CALLBACK_URL, // Use the imported constant
       scope: ['profile', 'email'],
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
         console.log('Google OAuth Profile:', profile.id);
+        console.log('Google Callback URL:', GOOGLE_CALLBACK_URL);
 
         // Check if user exists
         let user = await User.findOne({
@@ -69,18 +78,19 @@ passport.use(
   )
 );
 
-// GitHub OAuth 
+// GitHub OAuth - FIXED: Use imported callback URL
 passport.use(
   new GitHubStrategy(
     {
-      clientID: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: `${process.env.API_URL || 'https://placement-prep-wa.onrender.com'}/api/auth/github/callback`,
+      clientID: GITHUB_CLIENT_ID,
+      clientSecret: GITHUB_CLIENT_SECRET,
+      callbackURL: GITHUB_CALLBACK_URL, // Use the imported constant
       scope: ['user:email'],
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
         console.log('GitHub OAuth Profile:', profile.id);
+        console.log('GitHub Callback URL:', GITHUB_CALLBACK_URL);
 
         // Get primary email from GitHub
         const email = profile.emails && profile.emails.length > 0 
